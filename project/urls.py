@@ -16,10 +16,19 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from ejemplo.views import index, index_dos, index_tres, monstrar_familiares
+from ejemplo.views import (index, index_dos, index_tres,
+                           imc, monstrar_familiares, BuscarFamiliar, AltaFamiliar, ActualizarFamiliar)
+#from blog.views import index as blog_index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('saludar/', index),
-    path('mi-familia/', monstrar_familiares),  # nueva vista
+    path('saludar/<nombre>/<apellido>/', index_dos),
+    path('mostrar-notas/', index_tres),
+    path('imc/<int:peso>/<int:altura>', imc),
+    path('mi-familia/', monstrar_familiares),
+#    path('blog/', blog_index),
+    path('mi-familia/buscar', BuscarFamiliar.as_view()),  # NUEVA RUTA PARA BUSCAR FAMILIAR
+    path('mi-familia/alta', AltaFamiliar.as_view()),
+    path('mi-familia/actualizar/<int:pk>', ActualizarFamiliar.as_view()),
 ]
