@@ -20,4 +20,26 @@ class Migration(migrations.Migration):
                 ('numero_pasaporte', models.IntegerField()),
             ],
         ),
+
+        migrations.CreateModel(
+            name='Datos_Personales',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('nombre', models.CharField(max_length=100)),
+                ('direccion', models.CharField(max_length=200)),
+                ('numero_pasaporte', models.IntegerField()),
+                ('numero_dni', models.IntegerField()),
+                ('FactorSanguineo', models.IntegerField()),
+            ],
+        ),
+
+        migrations.CreateModel(
+            name='Seguro',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('nombredeplan', models.CharField(max_length=100)),
+                ('tipodeplan', models.CharField(max_length=200)),
+                ('numero_socio', models.IntegerField()),
+            ],
+        ),
     ]

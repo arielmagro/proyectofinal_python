@@ -17,7 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from ejemplo.views import (index, index_dos, index_tres,
-                           imc, monstrar_familiares, BuscarFamiliar, AltaFamiliar, ActualizarFamiliar)
+                           imc, monstrar_familiares, BuscarFamiliar, AltaFamiliar,
+                           ActualizarFamiliar, ActualizarDatos_Personales , Actualizarseguro,
+                           AltaDatos_Personales , AltaSeguro, monstrar_Datos_Personales , monstrar_seguro )
 #from blog.views import index as blog_index
 
 urlpatterns = [
@@ -31,4 +33,12 @@ urlpatterns = [
     path('mi-familia/buscar', BuscarFamiliar.as_view()),  # NUEVA RUTA PARA BUSCAR FAMILIAR
     path('mi-familia/alta', AltaFamiliar.as_view()),
     path('mi-familia/actualizar/<int:pk>', ActualizarFamiliar.as_view()),
+    path('seguro/actualizar/<int:pk>', Actualizarseguro.as_view()),
+    path('datosPersonales/actualizar/<int:pk>', ActualizarDatos_Personales.as_view()),
+    path('seguro/alta', AltaSeguro.as_view()),
+    path('mis-datos-personales/alta', AltaDatos_Personales.as_view()),
+    path('seguro/', monstrar_seguro),
+    path('datosPersonales/', monstrar_Datos_Personales),
+    path('seguro/buscar', BuscarFamiliar.as_view()),
+    path('datosPersonales/buscar', BuscarFamiliar.as_view()),
 ]
