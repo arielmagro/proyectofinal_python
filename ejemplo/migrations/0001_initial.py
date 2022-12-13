@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
             name='Seguro',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nombredeplan', models.CharField(max_length=100)),
+                ('nombre', models.CharField(max_length=100)),
                 ('tipodeplan', models.CharField(max_length=200)),
                 ('numero_socio', models.IntegerField()),
             ],

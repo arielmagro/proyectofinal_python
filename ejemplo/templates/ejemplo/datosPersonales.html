@@ -1,6 +1,6 @@
 {% extends 'ejemplo/base.html' %}
 {% block contenido %}
-{% for datospersonales in lista_datos_personales %}
+{% for datospersonales in lista_datosPersonales %}
 <ul>
     <li> Nombre: {{datospersonales.nombre}}, Dirección: {{datospersonales.direccion}}, Pasaporte: {{datospersonales.numero_pasaporte}}, Dni: {{datospersonales.numero_dni}}, factorsanguineo: {{datospersonales.FactorSanguineo}}
         <!-- Esto agrega un link al form de actulización-->
