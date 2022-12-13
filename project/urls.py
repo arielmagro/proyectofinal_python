@@ -19,7 +19,7 @@ from django.urls import path
 from ejemplo.views import (index, index_dos, index_tres,
                            imc, monstrar_familiares, BuscarFamiliar, AltaFamiliar,
                            ActualizarFamiliar, ActualizarDatos_Personales , Actualizarseguro,
-                           AltaDatos_Personales , AltaSeguro, monstrar_Datos_Personales , monstrar_seguro )
+                           AltaDatos_Personales , AltaSeguro, monstrar_Datos_Personales , monstrar_seguro , BuscarDatosPersonales , BuscarSeguro )
 #from blog.views import index as blog_index
 
 urlpatterns = [
@@ -39,6 +39,6 @@ urlpatterns = [
     path('mis-datos-personales/alta', AltaDatos_Personales.as_view()),
     path('seguro/', monstrar_seguro),
     path('datosPersonales/', monstrar_Datos_Personales),
-    path('seguro/buscar', BuscarFamiliar.as_view()),
-    path('datosPersonales/buscar', BuscarFamiliar.as_view()),
+    path('seguro/buscar', BuscarSeguro.as_view()),
+    path('datosPersonales/buscar', BuscarDatosPersonales.as_view()),
 ]

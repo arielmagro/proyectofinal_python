@@ -13,9 +13,9 @@ class FamiliarForm(forms.ModelForm):
 class Datos_PersonalesForm(forms.ModelForm):
   class Meta:
     model = Datos_Personales
-    fields = ['nombre', 'direccion', 'numero_pasaporte','numero_dni']
+    fields = ['nombre', 'direccion', 'numero_pasaporte','numero_dni', 'FactorSanguineo']
 
 class SeguroForm(forms.ModelForm):
   class Meta:
     model = Seguro
-    fields = ['nombredeplan', 'tipodeplan', 'numero_socio']
+    fields = ['nombre', 'tipodeplan', 'numero_socio']

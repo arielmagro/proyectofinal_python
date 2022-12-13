@@ -2,7 +2,7 @@
 {% block contenido %}
 {% for Seguro in lista_seguro %}
 <ul>
-    <li> Nombre_De_Plan: {{Seguro.nombredeplan}}, Tipo_de_plan: {{Seguro.tipodeplan}}, Numero_de_spcio: {{Seguro.numero_socio}}
+    <li> Nombre_De_Plan: {{Seguro.nombre}}, Tipo_de_plan: {{Seguro.tipodeplan}}, Numero_de_spcio: {{Seguro.numero_socio}}
         <!-- Esto agrega un link al form de actulización-->
         <a href='actualizar/{{ Seguro.id }}'>Actualizar</a>
     </li>

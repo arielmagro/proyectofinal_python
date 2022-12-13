@@ -16,8 +16,8 @@ def monstrar_familiares(request):
     lista_familiares = Familiar.objects.all()
     return render(request, "ejemplo/familiares.html", {"lista_familiares": lista_familiares})
 def monstrar_Datos_Personales(request):
-    lista_datos_personales = Datos_Personales.objects.all()
-    return render(request, "ejemplo/datosPersonales.html", {"lista_datos_personales": lista_datos_personales})
+    lista_datosPersonales = Datos_Personales.objects.all()
+    return render(request, "ejemplo/datosPersonales.html", {"lista_datosPersonales": lista_datosPersonales})
 def monstrar_seguro(request):
     lista_seguro = Seguro.objects.all()
     return render(request, "ejemplo/seguro.html", {"lista_seguro": lista_seguro})
@@ -39,7 +39,7 @@ class BuscarFamiliar(View):
                                                         'lista_familiares':lista_familiares})
         return render(request, self.template_name, {"form": form})
 
-class BuscarFamiliar(View):
+class BuscarSeguro(View):
     form_class = Buscar
     template_name = 'ejemplo/buscar.html'
     initial = {"nombre":""}
@@ -50,13 +50,13 @@ class BuscarFamiliar(View):
         form = self.form_class(request.POST)
         if form.is_valid():
             nombre = form.cleaned_data.get("nombre")
-            lista_familiares = Familiar.objects.filter(nombre__icontains=nombre).all()
+            lista_seguro = Seguro.objects.filter(nombre__icontains=nombre).all()
             form = self.form_class(initial=self.initial)
             return render(request, self.template_name, {'form':form,
-                                                        'lista_familiares':lista_familiares})
+                                                        'lista_seguro':lista_seguro})
         return render(request, self.template_name, {"form": form})
 
-class BuscarFamiliar(View):
+class BuscarDatosPersonales(View):
     form_class = Buscar
     template_name = 'ejemplo/buscar.html'
     initial = {"nombre":""}
@@ -67,10 +67,10 @@ class BuscarFamiliar(View):
         form = self.form_class(request.POST)
         if form.is_valid():
             nombre = form.cleaned_data.get("nombre")
-            lista_familiares = Familiar.objects.filter(nombre__icontains=nombre).all()
+            lista_datosPersonales= Datos_Personales.objects.filter(nombre__icontains=nombre).all()
             form = self.form_class(initial=self.initial)
             return render(request, self.template_name, {'form':form,
-                                                        'lista_familiares':lista_familiares})
+                                                        'lista_datosPersonales':lista_datosPersonales})
         return render(request, self.template_name, {"form": form})
 
 class AltaFamiliar(View):
@@ -116,7 +116,7 @@ class AltaDatos_Personales(View):
 class AltaSeguro(View):
     form_class = SeguroForm
     template_name = 'ejemplo/alta_seguro.html'
-    initial = {"nombredeplan": "", "tipodeplan": "", "numero_socio": "" }
+    initial = {"nombre": "", "tipodeplan": "", "numero_socio": "" }
 
     def get(self, request):
         form = self.form_class(initial=self.initial)
@@ -165,20 +165,20 @@ class ActualizarDatos_Personales(View):
 
     # prestar atención ahora el method get recibe un parametro pk == primaryKey == identificador único
     def get(self, request, pk):
-        datospersonales = get_object_or_404(Datos_Personales, pk=pk)
-        form = self.form_class(instance=datospersonales)
-        return render(request, self.template_name, {'form': form, 'datospersonales': datospersonales})
+        DatosPersonales = get_object_or_404(Datos_Personales, pk=pk)
+        form = self.form_class(instance=DatosPersonales)
+        return render(request, self.template_name, {'form': form, 'Datos_Personales': DatosPersonales})
 
     # prestar atención ahora el method post recibe un parametro pk == primaryKey == identificador único
     def post(self, request, pk):
-        datospersonales = get_object_or_404(Datos_Personales, pk=pk)
-        form = self.form_class(request.POST, instance=datospersonales)
+        DatosPersonales = get_object_or_404(Datos_Personales, pk=pk)
+        form = self.form_class(request.POST, instance=DatosPersonales)
         if form.is_valid():
             form.save()
             msg_exito = f"se actualizó con éxito los datos personales de  {form.cleaned_data.get('nombre')}"
             form = self.form_class(initial=self.initial)
             return render(request, self.template_name, {'form': form,
-                                                        'familiar': datospersonales,
+                                                        'Datos_Personales': DatosPersonales,
                                                         'msg_exito': msg_exito})
 
         return render(request, self.template_name, {"form": form})
@@ -186,7 +186,7 @@ class ActualizarDatos_Personales(View):
 class Actualizarseguro(View):
     form_class = SeguroForm
     template_name = 'ejemplo/Actualizar_seguro.html'
-    initial = {"nombredeplan": "", "tipodeplan": "", "numero_socio": ""}
+    initial = {"nombre": "", "tipodeplan": "", "numero_socio": ""}
 
     # prestar atención ahora el method get recibe un parametro pk == primaryKey == identificador único
     def get(self, request, pk):
