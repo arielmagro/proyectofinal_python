@@ -19,7 +19,9 @@ from django.urls import path
 from ejemplo.views import (index, index_dos, index_tres,
                            imc, monstrar_familiares, BuscarFamiliar, AltaFamiliar,
                            ActualizarFamiliar, ActualizarDatos_Personales , Actualizarseguro,
-                           AltaDatos_Personales , AltaSeguro, monstrar_Datos_Personales , monstrar_seguro , BuscarDatosPersonales , BuscarSeguro )
+                           AltaDatos_Personales , AltaSeguro, monstrar_Datos_Personales , monstrar_seguro ,
+                           BuscarDatosPersonales , BuscarSeguro, FamiliarList, FamiliarCrear, FamiliarBorrar, FamiliarActualizar)
+from blogfinal.views import (index, PostList, PostCrear, DeleteView, PostDetalle, PostActualizar, PostBorrar)
 #from blog.views import index as blog_index
 
 urlpatterns = [
@@ -41,4 +43,14 @@ urlpatterns = [
     path('datosPersonales/', monstrar_Datos_Personales),
     path('seguro/buscar', BuscarSeguro.as_view()),
     path('datosPersonales/buscar', BuscarDatosPersonales.as_view()),
+    path('panel-familia/', FamiliarList.as_view()),
+    path('panel-familia/crear', FamiliarCrear.as_view()),
+    path('panel-familia/<int:pk>/borrar', FamiliarBorrar.as_view()),
+    path('panel-familia/<int:pk>/actualizar', FamiliarActualizar.as_view()),
+    path('blogfinal/', index),
+    path('blogfinal/listar', PostList.as_view()),
+    path('blogfinal/crear', PostCrear.as_view()),
+    path('blogfinal/<int:pk>/borrar', PostBorrar.as_view(), name='borrar'),
+    path('blogfinal/<int:pk>/detalle', PostDetalle.as_view(), name='detalle'),
+    path('blogfinal/<int:pk>/actualizar', PostActualizar.as_view(), name='actualizar'),
 ]
