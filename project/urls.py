@@ -21,7 +21,7 @@ from ejemplo.views import (index, index_dos, index_tres,
                            ActualizarFamiliar, ActualizarDatos_Personales , Actualizarseguro,
                            AltaDatos_Personales , AltaSeguro, monstrar_Datos_Personales , monstrar_seguro ,
                            BuscarDatosPersonales , BuscarSeguro, FamiliarList, FamiliarCrear, FamiliarBorrar, FamiliarActualizar)
-from blogfinal.views import (index, PostList, PostCrear, DeleteView, PostDetalle, PostActualizar, PostBorrar)
+from blogfinal.views import (index, PostList, PostCrear, DeleteView, PostDetalle, PostActualizar, PostBorrar, UserSingUp, UserLogin,UserLogout)
 #from blog.views import index as blog_index
 
 urlpatterns = [
@@ -47,10 +47,13 @@ urlpatterns = [
     path('panel-familia/crear', FamiliarCrear.as_view()),
     path('panel-familia/<int:pk>/borrar', FamiliarBorrar.as_view()),
     path('panel-familia/<int:pk>/actualizar', FamiliarActualizar.as_view()),
-    path('blogfinal/', index),
-    path('blogfinal/listar', PostList.as_view()),
-    path('blogfinal/crear', PostCrear.as_view()),
-    path('blogfinal/<int:pk>/borrar', PostBorrar.as_view(), name='borrar'),
-    path('blogfinal/<int:pk>/detalle', PostDetalle.as_view(), name='detalle'),
-    path('blogfinal/<int:pk>/actualizar', PostActualizar.as_view(), name='actualizar'),
+    path('blogfinal/', index, name = 'index'),
+    path('blogfinal/listar/', PostList.as_view(), name='listar'),
+    path('blogfinal/crear/', PostCrear.as_view(), name='crear'),
+    path('blogfinal/<int:pk>/borrar/', PostBorrar.as_view(), name='borrar'),
+    path('blogfinal/<int:pk>/detalle/', PostDetalle.as_view(), name='detalle'),
+    path('blogfinal/<int:pk>/actualizar/', PostActualizar.as_view(), name='actualizar'),
+    path('blogfinal/signup/', UserSingUp.as_view(), name='signup'),
+    path('blogfinal/login/', UserLogin.as_view(), name='login'),
+    path('blogfinal/logout/', UserLogout.as_view(), name='logout'),
 ]
