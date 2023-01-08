@@ -3,23 +3,7 @@
 {% block contenido %}
   
   <form action="/mi-familia/buscar" method="post">
-    <span>Buscar por familiares </span>
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-  </form>
-
-
-  <form action="/seguro/buscar" method="post">
-    <span>Buscar por seguro </span>
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-  </form>
-
-
-  <form action="/datosPersonales/buscar" method="post">
-    <span>Buscar por datos personales </span>
+      <span>Buscar por familiares </span>
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">
@@ -27,22 +11,34 @@
 
 
 
+ <form action="/seguro/buscar" method="post">
+     <span>Buscar por seguro </span>
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+  </form>
+
+
+
+ <form action="/datosPersonales/buscar" method="post">
+     <span>Buscar por datos personales</span>
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+  </form>
   {% for familiar in lista_familiares %}
       <ul>
           <li> Nombre: {{familiar.nombre}}, Dirección: {{familiar.direccion}}, Pasaporte: {{familiar.numero_pasaporte}}</li>
       </ul>
   {% endfor %}
-
-  {% for Seguro in lista_seguro %}
+ {% for seguro in lista_seguro %}
       <ul>
-          <li> Nombre: {{Seguro.nombre}}, tipodeplan: {{Seguro.tipodeplan}}, numero_socio: {{Seguro.numero_socio}}</li>
+          <li> Nombre: {{seguro.nombre}}, tipoDePlan: {{seguro.tipoDePlan}}, numeroSocio: {{seguro.numeroSocio}}</li>
       </ul>
   {% endfor %}
-
-  {% for datos_personales in lista_datosPersonales %}
+  {% for datosPersonales in lista_datosPersonales %}
       <ul>
-          <li> Nombre: {{datos_personales.nombre}}, Dirección: {{datos_personales.direccion}}, Pasaporte: {{datos_personales.numero_pasaporte}}, numero_dni: {{datos_personales.numero_dni}}, FactorSanguineo: {{datos_personales.FactorSanguineo}}</li>
+          <li> Nombre: {{datosPersonales.nombre}}, Dirección: {{datosPersonales.direccion}}, Pasaporte: {{datosPersonales.numero_pasaporte}}, numero_dni: {{datosPersonales.numero_dni}}, factorSanguineo: {{datosPersonales.factorSanguineo}}</li>
       </ul>
   {% endfor %}
-
 {% endblock %}

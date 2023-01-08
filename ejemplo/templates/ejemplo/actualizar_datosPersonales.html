@@ -1,9 +1,9 @@
 {% extends 'ejemplo/base.html' %}
-{% block titulo%} Modificar seguro {% endblock %}
+{% block titulo%} Modificar Datos personales {% endblock %}
 {% block contenido %}
 
 <!-- Prestar aatención a la variable datosPersonales.id -->
-<form action="/seguro/actualizar/{{ seguro.id }}" method="post">
+<form action="/datosPersonales/actualizar/{{ datosPersonales.id }}" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">

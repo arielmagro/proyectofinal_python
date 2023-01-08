@@ -1,7 +1,7 @@
 {% extends 'ejemplo/base.html' %}
-{% block titulo%} Alta de Datos_Personales {% endblock %}
+{% block titulo%} Alta de datos personales {% endblock %}
 {% block contenido %}
-
+  
   <form action="/mis-datos-personales/alta" method="post">
     {% csrf_token %}
     {{ form }}

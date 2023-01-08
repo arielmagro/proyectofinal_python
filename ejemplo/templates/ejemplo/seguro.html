@@ -1,16 +1,15 @@
 {% extends 'ejemplo/base.html' %}
 {% block contenido %}
-{% for Seguro in lista_seguro %}
+{% for seguro in lista_seguro %}
 <ul>
-    <li> Nombre_De_Plan: {{Seguro.nombre}}, Tipo_de_plan: {{Seguro.tipodeplan}}, Numero_de_spcio: {{Seguro.numero_socio}}
+    <li> Nombre_De_Plan: {{seguro.nombre}}, tipo_De_Plan: {{seguro.tipoDePlan}}, numero_Socio: {{seguro.numeroSocio}}
         <!-- Esto agrega un link al form de actulización-->
-        <a href='actualizar/{{ Seguro.id }}'>Actualizar</a>
+        <a href='actualizar/{{ seguro.id }}'>Actualizar</a>
     </li>
 </ul>
 {% endfor %}
 {%endblock %}
 
-
 {% block titulo%}
-Lista de todos mis Seguro
+Lista de todos mi Seguro
 {% endblock %}
