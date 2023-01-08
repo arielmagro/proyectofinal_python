@@ -1,6 +1,5 @@
 # proyectofinal_python
-proyectofinal_python
-
+Python
 1- Clonar el repositorio
     https://github.com/arielmagro/proyectofinal_python.git
 
@@ -14,7 +13,7 @@ proyectofinal_python
 
 4- Para dar de alta redirijirse a
             http://127.0.0.1:8000/mi-familia/alta,
-            http://127.0.0.1:8000/seguro/alta,
+            http://127.0.0.1:8000/mi-seguro/alta,
             http://127.0.0.1:8000/mis-datos-personales/alta
 
 5- Para ver los datos redirijirse a
@@ -31,3 +30,4 @@ proyectofinal_python
             http://127.0.0.1:8000/mi-familia/buscar,
             http://127.0.0.1:8000/seguro/buscar,
             http://127.0.0.1:8000/datosPersonales/buscar
+

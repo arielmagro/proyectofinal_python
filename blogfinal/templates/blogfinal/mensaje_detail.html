@@ -1,0 +1,11 @@
+{% extends 'blogfinal/base.html' %}
+
+{% block contenido %}
+<div>
+    <h1>{{object.nombre}}</h1>
+<h2>{{object.email}}</h2>
+</div>
+<div> {{object.texto}}</div>
+<a href="{% url 'listar' %}">Volvar a lista</a>
+<a href="{% url 'index' %}">Volver a index</a>
+{% endblock %}

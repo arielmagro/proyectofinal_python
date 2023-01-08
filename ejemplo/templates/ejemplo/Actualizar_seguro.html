@@ -2,7 +2,7 @@
 {% block titulo%} Modificar seguro {% endblock %}
 {% block contenido %}
 
-<!-- Prestar aatención a la variable seguro.id -->
+<!-- Prestar aatención a la variable datosPersonales.id -->
 <form action="/seguro/actualizar/{{ seguro.id }}" method="post">
     {% csrf_token %}
     {{ form }}

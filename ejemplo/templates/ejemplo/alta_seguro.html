@@ -2,7 +2,7 @@
 {% block titulo%} Alta de nuevo seguro {% endblock %}
 {% block contenido %}
   
-  <form action="/seguro/alta" method="post">
+  <form action="/mi-seguro/alta" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">
